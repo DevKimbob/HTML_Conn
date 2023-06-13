@@ -37,11 +37,12 @@ pipeline {
     }
 
     stage('Kubernetes') {
-      /* steps { */
-      /*   script { */
-      /*     kubernetesDeploy(configs: "deployment.yaml", "service.yaml") */
-      /*   } */
-      /* } */
+      steps {
+		echo "Kubernetes!"
+        /* script { */
+        /*   kubernetesDeploy(configs: "deployment.yaml", "service.yaml") */
+        /* } */
+      }
     }
 
   }
