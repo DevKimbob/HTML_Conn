@@ -2,16 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: html-conn
-  annotation: $VERSION
 spec:
   revisionHistoryLimit: 0
   replicas: 2
   template:
-    metadata:
-      annotations:
-        force-update: "true"
+    # metadata:
+    #   annotations:
+    #     force-update: "true"
     spec:
       containers:
       - name: curl-target
         image: devkimbob/html_conn:latest
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
