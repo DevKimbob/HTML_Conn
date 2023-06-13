@@ -6,7 +6,7 @@ pipeline {
       steps {
 		script {
 		  sh "git clone https://github.com/DevKimbob/HTML_Conn.git"
-		  bash "export VERSION=$(cat version.txt)"
+		  sh "export VERSION=${cat version.txt}"
 		}
       }
     }
