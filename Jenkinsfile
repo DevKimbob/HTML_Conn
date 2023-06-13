@@ -66,11 +66,19 @@ pipeline {
         script {
 		  docker.withRegistry( '', registryCredential ) {
 			dockerImage.push()
-			/* taggedImage.push() */
+			taggedImage.push()
 		  }
         }
       }
     }
+
+	stage('Clean Image') {
+	  steps {
+		script {
+		  sh "docker rmi $registry:$VERSION"
+		}
+	  }
+	}
 
     stage('Kubernetes') {
       steps {
