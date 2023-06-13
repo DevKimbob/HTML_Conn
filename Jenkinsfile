@@ -53,7 +53,7 @@ pipeline {
       steps {
         script {
 		  dockerImage = docker.build registry + ":$VERSION"
-		  taggedImage = dockerImage.tag('"$registry":latest')
+		  /* taggedImage = dockerImage.tag('"$registry":latest') */
         }
       }
     }
@@ -63,7 +63,7 @@ pipeline {
         script {
 		  docker.withRegistry( '', registryCredential ) {
 			dockerImage.push()
-			taggedImage.push()
+			/* taggedImage.push() */
 		  }
         }
       }
