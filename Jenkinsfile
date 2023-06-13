@@ -41,7 +41,7 @@ pipeline {
       /*   script { */
       /*     kubernetesDeploy(configs: "deployment.yaml", "service.yaml") */
       /*   } */
-      }
+      /* } */
     }
 
   }
