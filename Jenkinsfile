@@ -42,7 +42,7 @@ pipeline {
 
 		  echo "$versionTag"
 
-		  if (versionTag.contains("$VERSION")) {
+		  if ($OVERRIDE == 0 && versionTag.contains("$VERSION")) {
 			error("$VERSION tag found. Exiting pipeline.")
 		  }
 		}
