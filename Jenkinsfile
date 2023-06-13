@@ -26,6 +26,21 @@ pipeline {
 	  }
 	}
 
+	stage('Check for Version Tag') {
+	  steps {
+		script {
+		  def versionTag = sh (
+			script: 'curl -s -S \'https://registry.hub.docker.com/v2/repositories/devkimbob/html_conn/tags/\' | jq \'.\"results\"[][\"name\"]\'',
+			returnStdout: true
+		  ).trim()
+
+		  if (versionTag.contains($VERSION)) {
+			error('$VERSION tag found. Exiting pipeline.')
+		  }
+		}
+	  }
+	}
+
     stage('Build image') {
       steps {
         script {
