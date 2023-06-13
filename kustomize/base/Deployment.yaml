@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html-conn
+spec:
+  replicas: 0
+  template:
+    spec:
+      containers:
+      - name: curl-target
+        image: devkimbob/html_conn:v2
+        ports:
+        - containerPort: 80

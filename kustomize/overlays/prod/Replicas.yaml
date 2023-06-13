@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html-conn
+spec:
+  replicas: 8
+  template:
+    spec:
+      containers:
+      - name: curl-target
+        image: devkimbob/html_conn:latest

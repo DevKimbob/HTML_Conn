@@ -1,0 +1,14 @@
+bases:
+- ../../base
+
+namespace:
+  prod
+
+namePrefix:
+  kustom-
+
+nameSuffix:
+  -prod
+
+patches:
+- Replicas.yaml

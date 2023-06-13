@@ -1,0 +1,6 @@
+resources:
+- Deployment.yaml
+- Service.yaml
+
+commonLabels:
+  app: html-conn
