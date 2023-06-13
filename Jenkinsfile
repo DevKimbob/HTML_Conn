@@ -5,7 +5,9 @@ pipeline {
     stage('Checkout Source') {
       steps {
         git 'https://github.com/DevKimbob/HTML_Conn.git'
-		sh "export VERSION=$(cat version.txt)"
+		script {
+		  sh "export VERSION=$(cat version.txt)"
+		}
       }
     }
 
