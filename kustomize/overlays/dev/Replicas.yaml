@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: html-conn
 spec:
-  revisionHistoryLimit: 0
+  revisionHistoryLimit: 1
   replicas: 2
   template:
     # metadata:
