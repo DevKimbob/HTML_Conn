@@ -21,6 +21,7 @@ pipeline {
 
 		  envMap.each { key, value ->
 		    env."$key" = value
+			echo "$key="value
 		  }
 		}
 	  }
@@ -33,6 +34,8 @@ pipeline {
 			script: 'curl -s -S \'https://registry.hub.docker.com/v2/repositories/devkimbob/html_conn/tags/\' | jq \'.\"results\"[][\"name\"]\'',
 			returnStdout: true
 		  ).trim()
+
+		  echo $versionTag
 
 		  if (versionTag.contains('$VERSION')) {
 			error('$VERSION tag found. Exiting pipeline.')
