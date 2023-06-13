@@ -11,7 +11,7 @@ ENV BG_COLOR=white
 ENV FONT_COLOR=black
 
 RUN apk add --no-cache gcc musl-dev linux-headers
-COPY requirements.txt requirements.txt
+COPY env/requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 RUN apk add --no-cache curl
