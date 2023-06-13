@@ -7,7 +7,7 @@ print('Container name : ', socket.gethostname())
 print('Container IP : ', socket.gethostbyname(socket.gethostname()), end='\n\n')
 
 file = open('version.txt', 'r')
-version = file.read().split('=')[1]
+version = file.read().split('\n')[0].split('=')[1]
 file.close()
 
 @app.route("/")
