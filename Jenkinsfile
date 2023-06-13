@@ -8,11 +8,17 @@ pipeline {
       }
     }
 
+	stage('Set Version') {
+	  steps {
+	    script {
+		  env.VERSION = '1.0.0'
+		}
+	  }
+	}
+
     stage('Build image') {
       steps {
         script {
-		  dev verion = "1.0.0"
-		  System.env["VERSION"] = version
           /* sh "export VERSION=${cat version.txt}" */
 		  /* sh "export VERSION=1.0.0" */
           sh "docker build -t devkimbob/html_conn:$VERSION ."
