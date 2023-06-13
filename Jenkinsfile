@@ -10,6 +10,7 @@ pipeline {
     stage('Build image') {
       steps {
         script {
+		  bash "export VERSION=${bash cat version.txt}"
           sh "docker build -t devkimbob/html_conn:latest ."
 		  sh "echo hello"
         }
