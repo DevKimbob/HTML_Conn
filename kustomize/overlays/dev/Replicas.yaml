@@ -9,3 +9,4 @@ spec:
       containers:
       - name: curl-target
         image: devkimbob/html_conn:latest
+        imagePullPolicy: Always
