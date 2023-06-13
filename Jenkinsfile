@@ -38,7 +38,7 @@ pipeline {
 		  echo "$versionTag"
 
 		  if (versionTag.contains("$VERSION")) {
-			error('$VERSION tag found. Exiting pipeline.')
+			error("$VERSION tag found. Exiting pipeline.")
 		  }
 		}
 	  }
