@@ -48,7 +48,7 @@ pipeline {
     stage('Kubernetes') {
       steps {
         script {
-          sh "kubectl --kubeconfig=~/admin.yaml get nodes"
+          sh "kubectl --kubeconfig=/root/admin.yaml get nodes"
         }
       }
     }
