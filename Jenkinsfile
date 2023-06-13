@@ -55,6 +55,8 @@ pipeline {
 		  dockerImage = docker.build registry + ":$VERSION"
 		  echo "$dockerImage"
 		  sh "docker tag $registry:$VERSION $registry:latest"
+		  taggedImage = dockerImage.tag("$registry:latest")
+		  echo "$taggedImage"
         }
       }
     }
