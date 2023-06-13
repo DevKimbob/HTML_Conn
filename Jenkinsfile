@@ -11,7 +11,17 @@ pipeline {
 	stage('Set Version') {
 	  steps {
 	    script {
-		  env.VERSION = '1.0.0'
+		  def envFile = readFile 'version.txt'
+		  def envMap = [:]
+
+		  envFile.readLines().each { line ->
+		    def (key, value) = line.split('=')
+			envMap[key] = value
+		  }
+
+		  envMap.each { key, value ->
+		    env."$key" = value
+		  }
 		}
 	  }
 	}
@@ -19,8 +29,6 @@ pipeline {
     stage('Build image') {
       steps {
         script {
-          /* sh "export VERSION=${cat version.txt}" */
-		  /* sh "export VERSION=1.0.0" */
           sh "docker build -t devkimbob/html_conn:$VERSION ."
           sh "docker tag devkimbob/html_conn:$VERSION devkimbob/html_conn:latest"
         }
