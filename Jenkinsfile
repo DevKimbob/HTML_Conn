@@ -53,7 +53,7 @@ pipeline {
       steps {
         script {
 		  dockerImage = docker.build registry + ":$VERSION"
-		  taggedImage = dockerImage.tag('"$dockerImage":latest')
+		  taggedImage = dockerImage.tag('"$registry":latest')
         }
       }
     }
