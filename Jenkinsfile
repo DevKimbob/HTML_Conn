@@ -11,7 +11,7 @@ pipeline {
 	stage('Build image') {
 	  steps {
 		script {
-		  sh "export VERSION=${cat version.txt}"
+		  /* sh "export VERSION=${cat version.txt}" */
 		  sh "docker build -t devkimbob/html_conn:$VERSION ."
 		  sh "docker tag devkimbob/html_conn:$VERSION devkimbob/html_conn:latest"
 		}
@@ -35,5 +35,6 @@ pipeline {
 		}
 	  }
 	}
+
   }
 }
