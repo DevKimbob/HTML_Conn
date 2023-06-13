@@ -1,9 +1,9 @@
 pipeline {
 
-  environment {
-    dockerimagename = "devkimbob/html-conn"
-    dockerImage = ""
-  }
+  /* environment { */
+  /*   dockerimagename = "devkimbob/html-conn" */
+  /*   dockerImage = "" */
+  /* } */
 
   agent any
 
@@ -24,25 +24,18 @@ pipeline {
     }
 
     stage('Pushing Image') {
-      environment {
-               registryCredential = 'docker-credential'
-           }
       steps{
         script {
 		  sh "docker images"
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
-          }
-        }
-      }
-    }
+		  sh "docker login -u devkimbob -p rlaghwnd135790."
+		  sh "docker push devkimbob/html_conn:latest"
+		}
+	  }
+	}
 
     stage('Kubernetes') {
       steps {
 		echo "Kubernetes!"
-        /* script { */
-        /*   kubernetesDeploy(configs: "deployment.yaml", "service.yaml") */
-        /* } */
       }
     }
 
