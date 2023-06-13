@@ -1,11 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-	registry = "devkimbob/html_conn"
-	registryCredential = 'docker-credentials'
-  }
-
   stages {
     stage('Checkout Source') {
       steps {
@@ -52,8 +47,8 @@ pipeline {
     stage('Build image') {
       steps {
         script {
-		  dockerImage = docker.build registry + ":$VERION"
-		  taggedImage = dockerImage.tag('"$dockerImage":latest')
+          sh "docker build -t devkimbob/html_conn:$VERSION ."
+          sh "docker tag devkimbob/html_conn:$VERSION devkimbob/html_conn:latest"
         }
       }
     }
@@ -61,10 +56,9 @@ pipeline {
     stage('Pushing Image') {
       steps {
         script {
-		  docker.withRegistry( '', registryCredential ) {
-			dockerImage.push()
-			taggedImage.push()
-		  }
+          sh "docker login -u devkimbob -p rlaghwnd135790."
+          sh "docker push devkimbob/html_conn:$VERSION"
+          sh "docker push devkimbob/html_conn:latest"
         }
       }
     }
