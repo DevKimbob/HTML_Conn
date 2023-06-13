@@ -8,6 +8,6 @@ spec:
     spec:
       containers:
       - name: curl-target
-        image: devkimbob/html_conn:v2
+        image: devkimbob/html_conn:1.2.0
         ports:
         - containerPort: 80
