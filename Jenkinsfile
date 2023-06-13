@@ -67,7 +67,7 @@ pipeline {
       steps {
         script {
           sh "kubectl --kubeconfig=/root/admin.yaml get nodes"
-		  sh "kubectl --kubeconfig=/root/admin.yaml apply -k kustomize/overlays/prod"
+		  sh "kubectl --kubeconfig=/root/admin.yaml apply -k kustomize/overlays/dev"
         }
       }
     }

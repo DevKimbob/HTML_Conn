@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: curl-target
-        image: devkimbob/html_conn:latest
+        image: devkimbob/html_conn:1.2.0

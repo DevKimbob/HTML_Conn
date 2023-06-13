@@ -4,3 +4,8 @@ metadata:
   name: html-conn
 spec:
   replicas: 2
+  template:
+  spec:
+    containers:
+    - name: curl-target
+      image: devkimbob/html_conn:latest
