@@ -11,7 +11,7 @@ pipeline {
 	stage('Set Version') {
 	  steps {
 	    script {
-		  def envFile = readFile 'version.txt'
+		  def envFile = readFile 'env/version.txt'
 		  def envMap = [:]
 
 		  envFile.readLines().each { line ->

@@ -17,6 +17,6 @@ RUN pip install -r requirements.txt
 RUN apk add --no-cache curl
 
 EXPOSE 80
-COPY . .
+COPY build/ .
 
 CMD ["flask", "run"]
