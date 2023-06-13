@@ -35,7 +35,7 @@ pipeline {
 			returnStdout: true
 		  ).trim()
 
-		  echo $versionTag
+		  echo "$versionTag"
 
 		  if (versionTag.contains('$VERSION')) {
 			error('$VERSION tag found. Exiting pipeline.')
