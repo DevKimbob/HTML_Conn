@@ -5,6 +5,9 @@ metadata:
 spec:
   replicas: 2
   template:
+    metadata:
+      annotations:
+        force-update: "true"
     spec:
       containers:
       - name: curl-target
