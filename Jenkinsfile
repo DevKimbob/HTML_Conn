@@ -53,7 +53,9 @@ pipeline {
       steps {
         script {
 		  dockerImage = docker.build registry + ":$VERSION"
-		  def taggedImage = dockerImage.tag('"$registry":latest')
+		  docker.withRegistry( '', registryCredential ) {
+			def taggedImage = dockerImage.tag('"$registry":latest')
+		  }
         }
       }
     }
