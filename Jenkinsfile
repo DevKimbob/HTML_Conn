@@ -85,7 +85,7 @@ pipeline {
         script {
           sh "kubectl --kubeconfig=/root/admin.yaml get nodes"
 		  sh "kubectl --kubeconfig=/root/admin.yaml apply -k kustomize/overlays/dev"
-		  sh "kubectl --kubeconfig=/root/admin.yaml rollout restart -n dev ${kubectl --kubeconfig/root/admin.yaml get deployment -n dev -o name}"
+		  sh "kubectl --kubeconfig=/root/admin.yaml rollout restart -n dev ${kubectl '--kubeconfig/root/admin.yaml get deployment -n dev -o name'}"
         }
       }
     }
