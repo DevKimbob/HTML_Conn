@@ -18,7 +18,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build dockerimagename
+		  sh "docker build -t devkimbob/html_conn:latest ."
         }
       }
     }
@@ -29,9 +29,10 @@ pipeline {
            }
       steps{
         script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
-          }
+		  sh "docker images"
+          /* docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) { */
+          /*   dockerImage.push("latest") */
+          /* } */
         }
       }
     }
