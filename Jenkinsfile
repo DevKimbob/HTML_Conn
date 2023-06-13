@@ -21,7 +21,7 @@ pipeline {
 
 		  envMap.each { key, value ->
 		    env."$key" = value
-			echo "$key="value
+			echo "$key=$value"
 		  }
 		}
 	  }
