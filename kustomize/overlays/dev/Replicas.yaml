@@ -4,6 +4,7 @@ metadata:
   name: html-conn
   annotation: $VERSION
 spec:
+  revisionHistoryLimit: 0
   replicas: 2
   template:
     metadata:
