@@ -5,7 +5,7 @@ metadata:
 spec:
   replicas: 4
   template:
-  spec:
-    containers:
-    - name: curl-target
-      image: devkimbob/html_conn:1.2.0
+    spec:
+      containers:
+      - name: curl-target
+        image: devkimbob/html_conn:1.2.0
