@@ -9,3 +9,8 @@ spec:
       containers:
       - name: curl-target
         image: devkimbob/html_conn:1.2.0
+  strategy: RollingUpdate
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0

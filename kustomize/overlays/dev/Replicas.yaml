@@ -14,3 +14,5 @@ spec:
       - name: curl-target
         image: devkimbob/html_conn:latest
         # imagePullPolicy: Always
+  strategy:
+    type: Recreate
