@@ -1,6 +1,9 @@
 bases:
 - ../../base
 
+resources:
+- HPA.yaml
+
 namespace:
   prod
 

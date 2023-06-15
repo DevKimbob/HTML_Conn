@@ -9,6 +9,11 @@ spec:
       containers:
       - name: curl-target
         image: devkimbob/html_conn:1.2.0
+        resources:
+          requests:
+            cpu: 5m
+          limits:
+            cpu: 10m
   strategy: 
     type: RollingUpdate
     rollingUpdate:
